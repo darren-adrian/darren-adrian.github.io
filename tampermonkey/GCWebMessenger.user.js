@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GCWebMessenger
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Matt McPhee Demo Script
 // @author       matt.mcphee@genesys.com
 // @match        http*://*/*
@@ -63,9 +63,9 @@
             //-------------------------------------------------------USER SECTION------------------------------------------------------------------------------------------------
         if(document.domain === "www.csc.gov.auxxx"){
             try{
-                Genesys("command", "Database.set", { messaging: { customAttributes: { customerId: '456115', customerName: 'Pascal' }}});
+                Genesys("command", "Database.set", { messaging: { customAttributes: { customerId: '456115', customerName: 'Marcella' }}});
                 console.log("customerId: " + '456115');
-                console.log("customerName: " + 'Pascal');
+                console.log("customerName: " + 'Marcella');
             } catch(err){ console.error(err); }
         }
 
