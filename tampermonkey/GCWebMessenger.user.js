@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         WebMessager
+// @name         GCWebMessenger
 // @namespace    http://tampermonkey.net/
 // @version      1.2
 // @description  Matt McPhee Demo Script
