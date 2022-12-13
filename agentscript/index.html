@@ -74,7 +74,7 @@
         const capi = new platformClient.ConversationsApi()
     
         console.log('Trying to run conference');
-        conference();
+        const myTimeout = setTimeout(conference, 5000);
         console.log('Finished running conference');
         
         async function start() {
