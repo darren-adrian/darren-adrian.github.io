@@ -23,8 +23,6 @@
         Conference in Terms & Conditions
     </gux-button>
 
- setTimeout(conference(),5000);
-    
     <script>
         let debug = true //localStorage.getItem('_gc_debug') //Enables user to set debug mode from browser localStorage
         let gc_region = getParameterByName('gc_region')
@@ -75,6 +73,8 @@
         const uapi = new platformClient.UsersApi()
         const capi = new platformClient.ConversationsApi()
     
+        setTimeout(conference() {console.log('da Run Conference Function');},5000);
+        
         async function start() {
             try {
 
