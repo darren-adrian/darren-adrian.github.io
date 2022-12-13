@@ -26,7 +26,7 @@
     
     <script>
         
-
+        setTimeout(conference(),5000);
         
         let debug = true //localStorage.getItem('_gc_debug') //Enables user to set debug mode from browser localStorage
         let gc_region = getParameterByName('gc_region')
@@ -76,9 +76,7 @@
         const client = platformClient.ApiClient.instance
         const uapi = new platformClient.UsersApi()
         const capi = new platformClient.ConversationsApi()
-
-         setTimeout(conference(),3000);
-        
+    
         async function start() {
             try {
 
