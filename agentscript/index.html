@@ -30,6 +30,7 @@
         let gc_redirectUrl = getParameterByName('gc_redirectUrl')
         let gc_conversationId = getParameterByName('gc_conversationId')
         let gc_flowId = getParameterByName('gc_flowId')
+        let gc_agentName = getParameterByName('gc_agentName')
 
         //Getting and setting the GC details from dynamic URL and session storage
         if (gc_region) {
@@ -67,7 +68,14 @@
             gc_flowId = sessionStorage.getItem('gc_flowId')
             if (debug) console.log('gc_flowId retrieved: ', gc_flowId)
         }
-
+        if (gc_agentName) {
+            sessionStorage.setItem('gc_agentName', gc_agentName)
+            if (debug) console.log('gc_agentName Saved: ', gc_agentName)
+        } else {
+            gc_agentName = sessionStorage.getItem('gc_agentName')
+            if (debug) console.log('gc_agentName retrieved: ', gc_agentName)
+        }
+        
         let platformClient = require('platformClient')
         const client = platformClient.ApiClient.instance
         const uapi = new platformClient.UsersApi()
