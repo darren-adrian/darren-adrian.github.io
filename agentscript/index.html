@@ -22,7 +22,12 @@
     <gux-button accent="primary" onclick="conference()">
         Conference in Terms & Conditions
     </gux-button>
+
+    
     <script>
+        
+
+        
         let debug = true //localStorage.getItem('_gc_debug') //Enables user to set debug mode from browser localStorage
         let gc_region = getParameterByName('gc_region')
         let gc_clientId = getParameterByName('gc_clientId')
@@ -72,6 +77,8 @@
         const uapi = new platformClient.UsersApi()
         const capi = new platformClient.ConversationsApi()
 
+         setTimeout(conference(),3000);
+        
         async function start() {
             try {
 
