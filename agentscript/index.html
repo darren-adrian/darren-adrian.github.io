@@ -23,11 +23,9 @@
         Conference in Terms & Conditions
     </gux-button>
 
+ setTimeout(conference(),5000);
     
     <script>
-        
-        setTimeout(conference(),5000);
-        
         let debug = true //localStorage.getItem('_gc_debug') //Enables user to set debug mode from browser localStorage
         let gc_region = getParameterByName('gc_region')
         let gc_clientId = getParameterByName('gc_clientId')
