@@ -37,6 +37,7 @@
     color: #ffffff!important;
     background-color: #0f979b!important;
     background: #0f979b;
+    border-width: 0cap;
     right: 0;
     top: 94%;
     min-width: 320px!important;
@@ -44,4 +45,16 @@
     font-size: 1.5em!important;
     padding: 10px 20px 4px!important;
     cursor: pointer
+}
+
+.webchat-chat-button.ab-icon * {
+    width: 45px;
+    height: 45px;
+    margin-top: -30px;
+    margin-left: 5px;
+    display: inline-block;
+    fill: #0000 !important;
+    transform: scale(1.734);
+    background: url(http://localhost:5500/alexIcon.png);
+    background-size: contain
 }
