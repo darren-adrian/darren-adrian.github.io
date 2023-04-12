@@ -47,7 +47,7 @@
     cursor: pointer
 }
 
-.webchat-chat-button.ab-icon * {
+.webchat-chat-button-ab-icon {
     width: 45px;
     height: 45px;
     margin-top: -30px;
