@@ -36,6 +36,7 @@
   .webchat-chat-button {
     color: #ffffff!important;
     background-color: #0f979b!important;
+    background: #0f979b;
     right: 0;
     top: 40%;
     min-width: 320px!important;
