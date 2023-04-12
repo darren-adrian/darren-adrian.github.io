@@ -55,6 +55,6 @@
     display: inline-block;
     fill: #0000 !important;
     transform: scale(1.734);
-    background: url(http://localhost:5500/alexIcon.png);
+    background: url(https://darren-adrian.github.io/webmessaging/docs/images/alexIcon.png);
     background-size: contain
 }
