@@ -33,4 +33,87 @@
   });
 </script>
 </body>
+	
+
+            /////////////////////
+            // HOT KEY MONITOTING
+            /////////////////////
+            function doc_keyUp(e) {
+
+                if (e.altKey && e.keyCode == 49) {
+                    console.log("alt+1");
+                    custom();
+                }
+                if (e.altKey && e.keyCode == 50) {
+                    console.log("alt+2");
+                    AddedToCart();
+                }
+                if (e.altKey && e.keyCode == 51) {
+                    console.log("alt+3");
+                    RemovedFromCart();
+                }
+                if (e.altKey && e.keyCode == 52) {
+                    console.log("alt+4");
+                    Identify();
+                }
+                if (e.altKey && e.keyCode == 53) {
+                    console.log("alt+5");
+                    webChat();
+                }
+                if (e.altKey && e.keyCode == 54) {
+                    console.log("alt+6");
+                    FormAbandoned();
+                }
+                if (e.altKey && e.keyCode == 55) {
+                    console.log("alt+7");
+                    FormSubmitted();
+                }
+                if (e.altKey && e.keyCode == 56) {
+                    console.log("alt+8");
+                    Search();
+                }
+                if (e.altKey && e.keyCode == 57) {
+                    console.log("alt+9 - PAGEVIEW");
+                    PageView();
+                }
+            }
+            document.addEventListener('keyup', doc_keyUp, false);
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            //Button to clear-Destroy AltoCloud session cookies
+            var zNode = document.createElement('div');
+            zNode.innerHTML = '<button id="myButton" type="button">' +
+                'Clear Session</button>';
+            zNode.setAttribute('id', 'myContainer');
+            document.body.appendChild(zNode);
+
+            //--- Activate the newly added button.
+            document.getElementById("myButton").addEventListener(
+                "click", ButtonClickAction, false
+            );
+
+            function ButtonClickAction(zEvent) {
+                //localStorage.removeItem('_actmu');
+                //localStorage.removeItem('_actec');
+                Genesys('command', 'Identifiers.purgeAll')
+                console.log('GPE Session Destroyed');
+            }
+        //Button to login session
+            var zNode1 = document.createElement('div');
+            zNode1.innerHTML = '<button id="myButton1" type="button">' +
+                'Login Session</button>';
+            zNode1.setAttribute('id', 'myContainer1');
+            document.body.appendChild(zNode1);
+
+            //--- Activate the newly added button.
+            document.getElementById("myButton1").addEventListener(
+                "click", ButtonClickAction1, false
+            );
+
+            function ButtonClickAction1(zEvent) {
+                Identify();
+                console.log('GPE Session Logged in');
+            }
+        }) //End of on ready	
 </html>
