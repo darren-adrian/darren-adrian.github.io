@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<!-- Created as an example by https://github.com/mcphee11 Version 2.0 -->
+<html>
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Task Routing</title>
+    <meta name="theme-color" content="#ff4f1f" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Genesys CSS https://spark.genesys.com/ -->
+    <link href="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.1-178/genesys-webcomponents/genesys-webcomponents.css" rel="stylesheet" />
+    <script type="module" src="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.1-178/genesys-webcomponents/genesys-webcomponents.esm.js"></script>
+    <!-- Genesys SDK info https://developer.genesys.cloud/ -->
+    <script src="https://sdk-cdn.mypurecloud.com/javascript/latest/purecloud-platform-client-v2.min.js"></script>
+  </head>
+  <style>
+    label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';
+    }
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0px;
+      display: inline-block;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0px;
+      display: inline-block;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .container {
+      position: absolute;
+    }
+  </style>
+  <body onload="start()">
+    <script>
+      'use strict' //Enables strict mode is JavaScript
+      let url = new URL(document.location.href)
+      let gc_region = url.searchParams.get('gc_region')
+      let gc_clientId = url.searchParams.get('gc_clientId')
+      let gc_redirectUrl = url.searchParams.get('gc_redirectUrl')
+
+      //Getting and setting the GC details from dynamic URL and session storage
+      gc_region ? sessionStorage.setItem('gc_region', gc_region) : (gc_region = sessionStorage.getItem('gc_region'))
+      gc_clientId ? sessionStorage.setItem('gc_clientId', gc_clientId) : (gc_clientId = sessionStorage.getItem('gc_clientId'))
+      gc_redirectUrl ? sessionStorage.setItem('gc_redirectUrl', gc_redirectUrl) : (gc_redirectUrl = sessionStorage.getItem('gc_redirectUrl'))
+
+      let platformClient = require('platformClient')
+      const client = platformClient.ApiClient.instance
+      const uapi = new platformClient.UsersApi()
+      const tapi = new platformClient.TaskManagementApi()
+
+      async function start() {
+        try {
+          client.setEnvironment(gc_region)
+          client.setPersistSettings(true, '_mm_')
+
+          console.log('%cLogging in to Genesys Cloud', 'color: green')
+          await client.loginImplicitGrant(gc_clientId, gc_redirectUrl, {})
+
+          //GET Current UserId
+          let user = await uapi.getUsersMe({})
+          console.log(user)
+
+          //Enter in starting code.
+        } catch (err) {
+          console.log('Error: ', err)
+        }
+      } //End of start() function
+
+      async function createTask() {
+        try {
+          //check permissions
+          Notification.requestPermission().then(function (permission) {
+            // If the user accepts, let's create a notification
+            if (permission === 'granted') {
+              console.log('notification permission granted')
+            }
+          })
+          let unix = Date.now()
+          let task = await tapi.postTaskmanagementWorkitems({
+            name: 'Gsummit - ' + unix,
+            description: 'EV Rebate',
+            priority: 0,
+            workbinId: '9a9a1b6d-fd97-4a09-9d76-6142e786e27c',
+            autoStatusTransition: true,
+            typeId: '0494e980-d2de-46a1-86a1-30bb3645114d',
+            customFields: {
+              rebateType_text: document.getElementById('rebateType_text').value,
+              firstName_text: document.getElementById('firstName_text').value,
+              lastName_text: document.getElementById('lastName_text').value,
+              emailAddress_text: document.getElementById('emailAddress_text').value,
+              mobilePhone_text: document.getElementById('mobilePhone_text').value,
+              purchaseReference_text: document.getElementById('purchaseReference_text').value,
+              purchaseDate_text: document.getElementById('purchaseDate_text').value,
+              purchaseAmount_text: document.getElementById('purchaseAmount_text').value,
+              supplierName_text: document.getElementById('supplierName_text').value,
+              supplierReference_text: document.getElementById('supplierReference_text').value,
+            },
+          })
+          var notification = new Notification('Task Created', {
+            tag: 'genesys',
+            body: 'Created: Gsummit - ' + unix,
+            icon: 'https://dhqbrvplips7x.cloudfront.net/contact-center/5000-5000/img/favicon.ico',
+          })
+          window.alert()
+        } catch (err) {
+          var notification = new Notification('Task Error', {
+            tag: 'genesys',
+            body: 'There was an error: ' + err.message,
+            icon: 'https://dhqbrvplips7x.cloudfront.net/contact-center/5000-5000/img/favicon.ico',
+          })
+          console.error(err)
+        }
+      }
+    </script>
+
+    <div class="container" id="container">
+      <div style="padding: 25px">
+        <img src="./GSummit_Logo.png" width="100%" />
+        <label>Rebate Type</label>
+        <select id="rebateType_text">
+          <option value="EV Rebate">EV Rebate</option>
+          <option value="Dining Out Rebate">Dining Out Rebate</option>
+          <option value="Medical Claim">Medical Claim</option>
+        </select>
+        <label>First Name</label>
+        <input id="firstName_text" placeholder="Your first name.." />
+        <label>Last Name</label>
+        <input id="lastName_text" placeholder="Your last name.." />
+        <label>Email Address</label>
+        <input id="emailAddress_text" placeholder="Your email address.." />
+        <label>Mobile Phone</label>
+        <input id="mobilePhone_text" placeholder="Your Mobile Phone number.." />
+        <label>Invoice #</label>
+        <input id="purchaseReference_text" placeholder="eg: 1234" />
+        <label>Purchase Date</label>
+        <input id="purchaseDate_text" type="date" placeholder="" />
+        <label>Amount</label>
+        <input id="purchaseAmount_text" placeholder="eg: $100.05" />
+        <label>Supplier</label>
+        <input id="supplierName_text" placeholder="eg: Genesys" />
+        <label>Supplier #</label>
+        <input id="supplierReference_text" placeholder="eg: 1234" />
+        <button onclick="createTask()" style="width: 100%; background-color: rgb(255, 79, 31); color: white; padding: 14px; margin: 20px 0px 0px; border: none; border-radius: 4px; cursor: pointer">
+          Submit
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
