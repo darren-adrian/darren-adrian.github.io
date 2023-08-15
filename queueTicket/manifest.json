@@ -1,0 +1,39 @@
+
+{
+  "name": "Create Task",
+  "short_name": "Task",
+  "start_url": "/?home=true",
+  "icons": [
+    {
+      "src": "images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  
+  ],
+  "theme_color": "#ff4f1f",
+  "background_color": "#FFFFFF",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "gcm_sender_id": "1234",
+  "gcm_user_visible_only": true
+}
