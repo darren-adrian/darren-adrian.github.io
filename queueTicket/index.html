@@ -89,7 +89,7 @@
             }
           })
           let unix = Date.now()
-          let ticket = unix.toString
+          let ticket = Math.floor((Math.random() * 1000) + 1);
           let task = await tapi.postTaskmanagementWorkitems({
             name: 'Ticket# - ' + ticket,
             description: 'QMS',
