@@ -90,24 +90,12 @@
           })
           let unix = Date.now()
           let task = await tapi.postTaskmanagementWorkitems({
-            name: 'Gsummit - ' + unix,
-            description: 'EV Rebate',
+            name: 'Ticket - ' + toString(unix).slice(-5),
+            description: 'QMS',
             priority: 0,
-            workbinId: '9a9a1b6d-fd97-4a09-9d76-6142e786e27c',
+            workbinId: '19a6d392-e0ad-43cb-a1b1-067365bed638',
             autoStatusTransition: true,
-            typeId: '0494e980-d2de-46a1-86a1-30bb3645114d',
-            customFields: {
-              rebateType_text: document.getElementById('rebateType_text').value,
-              firstName_text: document.getElementById('firstName_text').value,
-              lastName_text: document.getElementById('lastName_text').value,
-              emailAddress_text: document.getElementById('emailAddress_text').value,
-              mobilePhone_text: document.getElementById('mobilePhone_text').value,
-              purchaseReference_text: document.getElementById('purchaseReference_text').value,
-              purchaseDate_text: document.getElementById('purchaseDate_text').value,
-              purchaseAmount_text: document.getElementById('purchaseAmount_text').value,
-              supplierName_text: document.getElementById('supplierName_text').value,
-              supplierReference_text: document.getElementById('supplierReference_text').value,
-            },
+            typeId: '785ebf39-3589-40c9-843f-0d90fce3f945'
           })
           var notification = new Notification('Task Created', {
             tag: 'genesys',
