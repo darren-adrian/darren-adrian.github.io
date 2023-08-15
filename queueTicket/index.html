@@ -90,7 +90,7 @@
           })
           let unix = Date.now()
           let task = await tapi.postTaskmanagementWorkitems({
-            name: 'Ticket - ' + toString(unix).slice(-5),
+            name: 'Ticket# - ' + unix.slice(-5),
             description: 'QMS',
             priority: 0,
             workbinId: '19a6d392-e0ad-43cb-a1b1-067365bed638',
