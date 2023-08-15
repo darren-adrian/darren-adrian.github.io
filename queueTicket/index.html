@@ -89,13 +89,19 @@
             }
           })
           let unix = Date.now()
+          let ticket = unix.toString
           let task = await tapi.postTaskmanagementWorkitems({
-            name: 'Ticket# - ' + unix.slice(-5),
+            name: 'Ticket# - ' + ticket.slice(-5),
             description: 'QMS',
             priority: 0,
             workbinId: '19a6d392-e0ad-43cb-a1b1-067365bed638',
             autoStatusTransition: true,
-            typeId: '785ebf39-3589-40c9-843f-0d90fce3f945'
+            typeId: '785ebf39-3589-40c9-843f-0d90fce3f945',
+            customFields: {
+              customername_text: document.getElementById('customername_text').value,
+              servicetype_enum: document.getElementById('servicetype_enum').value,
+            },
+
           })
           var notification = new Notification('Task Created', {
             tag: 'genesys',
@@ -118,29 +124,13 @@
       <div style="padding: 25px">
         <img src="./GSummit_Logo.png" width="100%" />
         <label>Rebate Type</label>
-        <select id="rebateType_text">
-          <option value="EV Rebate">EV Rebate</option>
-          <option value="Dining Out Rebate">Dining Out Rebate</option>
-          <option value="Medical Claim">Medical Claim</option>
+        <select id="servicetype_enum">
+          <option value="st01">Service Type 01</option>
+          <option value="st02">Service Type 02</option>
+          <option value="st03">Service Type 03</option>
         </select>
-        <label>First Name</label>
-        <input id="firstName_text" placeholder="Your first name.." />
-        <label>Last Name</label>
-        <input id="lastName_text" placeholder="Your last name.." />
-        <label>Email Address</label>
-        <input id="emailAddress_text" placeholder="Your email address.." />
-        <label>Mobile Phone</label>
-        <input id="mobilePhone_text" placeholder="Your Mobile Phone number.." />
-        <label>Invoice #</label>
-        <input id="purchaseReference_text" placeholder="eg: 1234" />
-        <label>Purchase Date</label>
-        <input id="purchaseDate_text" type="date" placeholder="" />
-        <label>Amount</label>
-        <input id="purchaseAmount_text" placeholder="eg: $100.05" />
-        <label>Supplier</label>
-        <input id="supplierName_text" placeholder="eg: Genesys" />
-        <label>Supplier #</label>
-        <input id="supplierReference_text" placeholder="eg: 1234" />
+        <label>Your Name</label>
+        <input id="customername_text" placeholder="Your name.." />
         <button onclick="createTask()" style="width: 100%; background-color: rgb(255, 79, 31); color: white; padding: 14px; margin: 20px 0px 0px; border: none; border-radius: 4px; cursor: pointer">
           Submit
         </button>
