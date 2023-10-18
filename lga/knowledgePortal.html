@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #35424a;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 50%;
+            height: 50%; /* Maintain aspect ratio */
+        }
+
+        nav ul {
+            background-color: #35424a;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #35424a;
+        }
+
+        p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #35424a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            max-height: 400px; /* Set your preferred max height */
+            overflow: hidden;
+        }
+
+        .image-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slider-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .slider-control button {
+            background: #35424a;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <title>Your Local Council</title>
+</head>
+<body>
+    <header>
+        <img src="local_council_logo.png" alt="Local Council Logo" width="200" height="200">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Services</a></li>
+            <li><a href="index.html">Events</a></li>
+            <li><a href="index.html">News</a></li>
+            <li><a href="knowledgePortal.html">Support</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="welcome-section">
+            <h1>Welcome to Your Local Council</h1>
+            <p>Welcome to the official website of Your Local Council. We are dedicated to serving and enriching the lives of our community members. Here, you'll find information about our services, upcoming events, news, and ways to connect with us.</p>
+
+        </section>
+
+        <div id="genesys-support-center"></div>
+        <script type="text/javascript" charset="utf-8">
+            (function (g, e, n, es, ys) {
+              g['_genesysJs'] = e;
+              g[e] = g[e] || function () {
+                (g[e].q = g[e].q || []).push(arguments)
+              };
+              g[e].t = 1 * new Date();
+              g[e].c = es;
+              ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+            })(window, 'Genesys', 'https://apps.mypurecloud.com.au/genesys-bootstrap/genesys.min.js', {
+              environment: 'apse2',
+              deploymentId: '7555db0b-a43b-4c56-9943-36c197bbfe73'
+            });
+          </script>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Accessibility Statement</a></li>
+        </ul>
+        <div class="social-icons">
+            <img src="facebook.png" alt="Facebook" width="30" height="30">
+            <img src="insta.png" alt="Instagram" width="30" height="30">
+        </div>
+        <p>&copy; 2023 Your Local Council by Genesys</p>
+    </footer>
+</body>
+</html>
