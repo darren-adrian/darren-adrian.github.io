@@ -140,11 +140,6 @@
     <title>Your Local Council</title>
 </head>
 <body>
-<script>
-    let url = new URL(document.location.href)
-    let lg_location = url.searchParams.get('lg_location')
-
-</script>
     
     <header>
         <img src="local_council_logo.png" alt="Local Council Logo" width="200" height="200">
@@ -163,6 +158,11 @@
     </nav>
 
     <main>
+        <script>
+            let url = new URL(document.location.href)
+            let lg_location = url.searchParams.get('lg_location')
+        </script>
+
         <section id="welcome-section">
             <h1>Welcome to Your Local Council + ${lg_location} </h1>
             <p>Welcome to the official website of Your Local Council. We are dedicated to serving and enriching the lives of our community members. Here, you'll find information about our services, upcoming events, news, and ways to connect with us.</p>
