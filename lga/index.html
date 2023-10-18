@@ -140,6 +140,26 @@
     <title>Your Local Council</title>
 </head>
 <body>
+<script>
+    // Function to get URL parameter by name
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Get the lg_location parameter from the URL
+    var lgLocation = getParameterByName('lg_location');
+
+    // Display lg_location in the HTML
+    if (lgLocation) {
+        document.getElementById('location').textContent = lgLocation;
+    }
+</script>
     
     <header>
         <img src="local_council_logo.png" alt="Local Council Logo" width="200" height="200">
@@ -158,13 +178,8 @@
     </nav>
 
     <main>
-        <script>
-            let url = new URL(document.location.href)
-            let lg_location = url.searchParams.get('lg_location')
-        </script>
-
         <section id="welcome-section">
-            <h1>Welcome to Your Local Council + ${lg_location} </h1>
+            <h1>Welcome to Your Local Council <span id="location"></span> </h1>
             <p>Welcome to the official website of Your Local Council. We are dedicated to serving and enriching the lives of our community members. Here, you'll find information about our services, upcoming events, news, and ways to connect with us.</p>
             
             <!-- Image Slider -->
