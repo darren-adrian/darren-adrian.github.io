@@ -126,21 +126,34 @@
 
 
     <title>Your Local Council</title>
+    <script src="customplugin.js" defer></script>
+    <title>Web Messaging</title>
+    <!--Genesys Cloud CSS Formatting Start-->
+    <link href="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.0-172/genesys-webcomponents/genesys-webcomponents.css" rel="stylesheet" />
+    <script type="module" src="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.0-172/genesys-webcomponents/genesys-webcomponents.esm.js"></script>
+    <!--Genesys Cloud CSS Formatting End-->
+    <script>
+      const deploymentID = '17e2faea-71f0-4520-99be-4befb5324972'
+    </script>
+    <script>
+      ;(function (g, e, n, es, ys) {
+        g['_genesysJs'] = e
+        g[e] =
+          g[e] ||
+          function () {
+            ;(g[e].q = g[e].q || []).push(arguments)
+          }
+        g[e].t = 1 * new Date()
+        g[e].c = es
+        ys = document.createElement('script')
+        ys.async = 1
+        ys.src = n
+        ys.charset = 'utf-8'
+        document.head.appendChild(ys)
+      })(window, 'Genesys', 'https://apps.mypurecloud.com.au/genesys-bootstrap/genesys.min.js', { environment: 'apse2', deploymentId: deploymentID, debug: true })
+    </script>
+    
 </head>
-<script type="text/javascript" charset="utf-8">
-    (function (g, e, n, es, ys) {
-      g['_genesysJs'] = e;
-      g[e] = g[e] || function () {
-        (g[e].q = g[e].q || []).push(arguments)
-      };
-      g[e].t = 1 * new Date();
-      g[e].c = es;
-      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-    })(window, 'Genesys', 'https://apps.mypurecloud.com.au/genesys-bootstrap/genesys.min.js', {
-      environment: 'apse2',
-      deploymentId: '17e2faea-71f0-4520-99be-4befb5324972'
-    });
-  </script>
 <body>
     <script>
   (function(a,t,c,l,o,u,d){a['_genesysJourneySdk']=o;a[o]=a[o]||function(){
