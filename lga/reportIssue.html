@@ -155,14 +155,46 @@
     
 </head>
 <body>
-    <script>
-  (function(a,t,c,l,o,u,d){a['_genesysJourneySdk']=o;a[o]=a[o]||function(){
-  (a[o].q=a[o].q||[]).push(arguments)},a[o].l=1*new Date();u=t.createElement(c),
-  d=t.getElementsByTagName(c)[0];u.async=1;u.src=l;u.charset='utf-8';d.parentNode.insertBefore(u,d)
-  })(window, document, 'script', 'https://apps.mypurecloud.com.au/journey/sdk/js/web/v1/ac.js', 'ac');
-  ac('init', '4d9d50da-1186-4a51-b2c5-59187a09c7a8', { region: 'apse2' });
-  ac('pageview');
-</script>
+  <script>
+      function pageView() {
+        var date = new Date()
+        var clock = date.getTime()
+        clock.toString()
+        console.log(clock)
+        Genesys('command', 'Journey.pageview', { pageTitle: "'" + clock + "'", pageLocation: "'" + clock + "'" })
+      }
+
+      function home() {
+        document.location.href = 'https://storage.googleapis.com/darren-plus/webmessaging/webmessaging.html'
+      }
+
+      function openChat() {
+        Genesys('command', 'Messenger.open')
+      }
+
+      function closeChat() {
+        Genesys('command', 'Messenger.close')
+      }
+
+      function addProduct() {
+        Genesys('command', 'Journey.record', { eventName: 'product_added', customAttributes: { price: 15.99, code: 'CDE-123', name: 'Product', hasBatteries: false } })
+      }
+
+      function removeProduct() {
+        Genesys('command', 'Journey.record', { eventName: 'product_removed', customAttributes: { price: 15.99, code: 'CDE-123', name: 'Product', hasBatteries: false } })
+      }
+
+      function triggerTest() {
+        Genesys('command', 'Journey.record', { eventName: 'MattTest', customAttributes: { MattTest: 'test' } })
+      }
+
+      function clearSession() {
+        localStorage.removeItem(`_${deploymentID}:gcmcopn`)
+        localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
+        Genesys('command', 'Identifiers.purgeAll', {})
+        home()
+      }
+    </script>
     <header>
         <img src="local_council_logo.png" alt="Local Council Logo" width="200" height="200">
     </header>
