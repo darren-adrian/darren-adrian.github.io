@@ -193,7 +193,7 @@
       }
 
       function home() {
-        document.location.href = 'https://storage.googleapis.com/darren-plus/webmessaging/webmessaging.html'
+        document.location.href = 'https://darren-adrian.github.io/lga/reportIssue.html'
       }
 
       function openChat() {
@@ -204,7 +204,6 @@
         localStorage.removeItem(`_${deploymentID}:gcmcopn`)
         localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
         Genesys('command', 'Identifiers.purgeAll', {})
-        home()
       },1500)
         
      setTimeout(function(){Genesys('command', 'Messenger.open')},2500)
