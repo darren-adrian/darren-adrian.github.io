@@ -30,6 +30,10 @@
         document.head.appendChild(ys)
       })(window, 'Genesys', 'https://apps.mypurecloud.com.au/genesys-bootstrap/genesys.min.js', { environment: 'apse2', deploymentId: deploymentID, debug: true })
     </script>
+
+  </head>
+
+  <body onload="openChat()">
     <script>
       function pageView() {
         var date = new Date()
@@ -71,10 +75,6 @@
       }
     </script>
     
-  </head>
-
-  <body onload="openChat()">
-
 
     <h1>Genesys Web Messaging Testing</h1>
   </body>
