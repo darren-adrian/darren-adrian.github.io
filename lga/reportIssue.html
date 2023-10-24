@@ -199,7 +199,16 @@
       function openChat() {
         Genesys('command', 'Messenger.open')
       }
-     setTimeout(function(){Genesys('command', 'Messenger.open')},2000)
+          
+     setTimeout(function(){
+        localStorage.removeItem(`_${deploymentID}:gcmcopn`)
+        localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
+        Genesys('command', 'Identifiers.purgeAll', {})
+        home()
+      },1500)
+        
+     setTimeout(function(){Genesys('command', 'Messenger.open')},2500)
+          
       function closeChat() {
         Genesys('command', 'Messenger.close')
       }
