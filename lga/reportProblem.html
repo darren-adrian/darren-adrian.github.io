@@ -66,7 +66,7 @@
       function triggerTest() {
         Genesys('command', 'Journey.record', { eventName: 'MattTest', customAttributes: { MattTest: 'test' } })
       }
-      setTimeout(5000, openChat())
+      setTimeout(openChat(),5000)
       function clearSession() {
         localStorage.removeItem(`_${deploymentID}:gcmcopn`)
         localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
