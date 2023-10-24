@@ -57,7 +57,7 @@
     </script>
   </head>
 
-  <body onload="openChat()">
+  <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P556WRQ" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -130,5 +130,10 @@
     <br />
     <br />
     <div id="genesys-support-center"></div>
+   <script>
+    window.addEventListener("load", function () {
+      openChat();
+    });
+  </script>
   </body>
 </html>
