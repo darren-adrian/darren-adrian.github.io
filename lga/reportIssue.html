@@ -204,9 +204,9 @@
         localStorage.removeItem(`_${deploymentID}:gcmcopn`)
         localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
         Genesys('command', 'Identifiers.purgeAll', {})
-      },1500)
+      },500)
         
-     setTimeout(function(){Genesys('command', 'Messenger.open')},2500)
+     setTimeout(function(){Genesys('command', 'Messenger.open')},3000)
           
       function closeChat() {
         Genesys('command', 'Messenger.close')
