@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-P556WRQ')
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #35424a;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 50%;
+            height: 50%; /* Maintain aspect ratio */
+        }
+
+        nav ul {
+            background-color: #35424a;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #35424a;
+        }
+
+        p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #35424a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            max-height: 400px; /* Set your preferred max height */
+            overflow: hidden;
+        }
+
+        .image-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slider-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .slider-control button {
+            background: #35424a;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+    </style>
+    <!--Removes Google Crawler from indexing page-->
+    <meta name="robots" content="noindex" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="customplugin.js" defer></script>
+
+    <title>Your Service Desk</title>
+    <script src="customplugin.js" defer></script>
+    <title>Web Messaging</title>
+    <!--Genesys Cloud CSS Formatting Start-->
+    <link href="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.0-172/genesys-webcomponents/genesys-webcomponents.css" rel="stylesheet" />
+    <script type="module" src="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.0-172/genesys-webcomponents/genesys-webcomponents.esm.js"></script>
+    <!--Genesys Cloud CSS Formatting End-->
+    <script>
+      const deploymentID = '0b606c55-7c61-40ac-9512-4144b27fb18a'
+    </script>
+    <script>
+      ;(function (g, e, n, es, ys) {
+        g['_genesysJs'] = e
+        g[e] =
+          g[e] ||
+          function () {
+            ;(g[e].q = g[e].q || []).push(arguments)
+          }
+        g[e].t = 1 * new Date()
+        g[e].c = es
+        ys = document.createElement('script')
+        ys.async = 1
+        ys.src = n
+        ys.charset = 'utf-8'
+        document.head.appendChild(ys)
+      })(window, 'Genesys', 'https://apps.mypurecloud.com.au/genesys-bootstrap/genesys.min.js', { environment: 'apse2', deploymentId: deploymentID, debug: true })
+    </script>
+    
+</head>
+<body>
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P556WRQ" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <script>
+      function pageView() {
+        var date = new Date()
+        var clock = date.getTime()
+        clock.toString()
+        console.log(clock)
+        Genesys('command', 'Journey.pageview', { pageTitle: "'" + clock + "'", pageLocation: "'" + clock + "'" })
+      }
+
+      function home() {
+        document.location.href = 'https://darren-adrian.github.io/lga/reportIssue.html'
+      }
+
+      function openChat() {
+        Genesys('command', 'Messenger.open')
+      }
+          
+     setTimeout(function(){
+        localStorage.removeItem(`_${deploymentID}:gcmcopn`)
+        localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
+        Genesys('command', 'Identifiers.purgeAll', {})
+      },500)
+        
+     setTimeout(function(){Genesys('command', 'Messenger.open')},3000)
+          
+      function closeChat() {
+        Genesys('command', 'Messenger.close')
+      }
+
+      function addProduct() {
+        Genesys('command', 'Journey.record', { eventName: 'product_added', customAttributes: { price: 15.99, code: 'CDE-123', name: 'Product', hasBatteries: false } })
+      }
+
+      function removeProduct() {
+        Genesys('command', 'Journey.record', { eventName: 'product_removed', customAttributes: { price: 15.99, code: 'CDE-123', name: 'Product', hasBatteries: false } })
+      }
+
+      function triggerTest() {
+        Genesys('command', 'Journey.record', { eventName: 'MattTest', customAttributes: { MattTest: 'test' } })
+      }
+
+      function clearSession() {
+        localStorage.removeItem(`_${deploymentID}:gcmcopn`)
+        localStorage.removeItem(`_${deploymentID}:gcmcsessionActive`)
+        Genesys('command', 'Identifiers.purgeAll', {})
+        home()
+      }
+    </script>
+    <header>
+        <img src="serviceDesk.jpeg" alt="Service Desk Logo" width="200" height="200">
+    </header>
+
+    <main>
+        <section id="welcome-section">
+            <h1>Welcome to Your Service Desk</h1>
+         
+        </section>
+
+    </main>
+
+   
+    <script>
+        // Function to get URL parameter by name
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Get the lg_location parameter from the URL
+        var lgLocation = getParameterByName('lg_location');
+
+    </script>
+</body>
+</html>
